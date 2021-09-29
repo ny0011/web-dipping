@@ -1,5 +1,7 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components';
 import './App.css';
+import TodoHead from './components/TodoHead';
+import TodoList from './components/TodoList';
 import { TodoTemplate } from './components/TodoTemplate'
 
 const GlobalStyle = createGlobalStyle`
@@ -12,7 +14,10 @@ function App() {
   return (
     <>
       <GlobalStyle></GlobalStyle>
-      <TodoTemplate>First Todo Template</TodoTemplate>
+      <TodoTemplate>
+        <TodoHead></TodoHead>
+        <TodoList></TodoList>
+      </TodoTemplate>
     </>
   );
 }
