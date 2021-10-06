@@ -7,14 +7,18 @@ const TodoListBlock = styled.div`
   padding-bottom: 48px;
   overflow-y: auto;
   background: grey;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
 `;
 
 const TodoList = () => {
-    return <TodoListBlock>
-        <TodoItem text="스터디 준비하기" done={true} id={1}></TodoItem>
-        <TodoItem text="잠자기" done={true} id={2}></TodoItem>
-        <TodoItem text="출근 준비하기" done={true} id={3}></TodoItem>
+  return (
+    <TodoListBlock>
+      <TodoItem text="스터디 준비하기" done={true} id={1}></TodoItem>
+      <TodoItem text="잠자기" done={true} id={2}></TodoItem>
+      <TodoItem text="출근 준비하기" done={true} id={3}></TodoItem>
     </TodoListBlock>
-}
+  );
+};
 
-export default TodoList
+export default TodoList;
