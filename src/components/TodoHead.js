@@ -28,11 +28,25 @@ const TodoHeadBlock = styled.div`
   }
 `;
 
+const getDate = (props) => {
+  const today = new Date();
+
+  if (props === "date") {
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+    const date = today.getDate();
+    return `${year}년 ${month}월 ${date}일`;
+  }
+  const dayList = ["일", "월", "화", "수", "목", "금", "토"];
+  const day = dayList[today.getDay()];
+  return `${day}요일`;
+};
+
 function TodoHead() {
   return (
     <TodoHeadBlock>
-      <h1>2021년 9월 15일</h1>
-      <div className="day">수요일</div>
+      <h1>{getDate("date")}</h1>
+      <div className="day">{getDate("day")}</div>
       <div className="task-left">이것만 하자</div>
     </TodoHeadBlock>
   );
