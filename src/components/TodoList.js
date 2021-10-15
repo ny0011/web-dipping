@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import TodoListContext from "../context/TodoContext";
 import TodoItem from "./TodoItem";
 
 const TodoListBlock = styled.div`
@@ -11,12 +13,18 @@ const TodoListBlock = styled.div`
   border-bottom-right-radius: 18px;
 `;
 
+// context를 사용하는 consumer
+// useContext로 context를 지정해두면 이 앱 밖에서 provider를 찾음
 const TodoList = () => {
+  const data = useContext(TodoListContext)
+  console.log(data)
+
   return (
     <TodoListBlock>
-      <TodoItem text="스터디 준비하기" done={true} id={1}></TodoItem>
-      <TodoItem text="잠자기" done={true} id={2}></TodoItem>
-      <TodoItem text="출근 준비하기" done={true} id={3}></TodoItem>
+      {data.map((item) => {
+        return <TodoItem text={item.text} done={item.done} id={item.id} key={item.id}></TodoItem>
+      }
+      )}
     </TodoListBlock>
   );
 };

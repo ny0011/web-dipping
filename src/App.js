@@ -1,9 +1,10 @@
-import { createGlobalStyle } from "styled-components";
-import "./App.css";
-import TodoCreate from "./components/TodoCreate";
-import TodoHead from "./components/TodoHead";
-import TodoList from "./components/TodoList";
-import { TodoTemplate } from "./components/TodoTemplate";
+import { createGlobalStyle } from 'styled-components';
+import './App.css';
+import TodoHead from './components/TodoHead';
+import TodoList from './components/TodoList';
+import { TodoTemplate } from './components/TodoTemplate'
+import TodoListContext from './context/TodoContext';
+import TodoCreate from "./components/TodoCreate"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,9 +17,16 @@ function App() {
     <>
       <GlobalStyle></GlobalStyle>
       <TodoTemplate>
-        <TodoHead></TodoHead>
-        <TodoList></TodoList>
-        <TodoCreate></TodoCreate>
+        <TodoListContext.Provider value={[
+          // mock data
+          { id: 1, text: "놀기", done: false },
+          { id: 2, text: "먹기", done: false },
+          { id: 3, text: "자기", done: true }
+        ]}>
+          <TodoHead></TodoHead>
+          <TodoList></TodoList>
+          <TodoCreate></TodoCreate>
+        </TodoListContext.Provider>
       </TodoTemplate>
     </>
   );
