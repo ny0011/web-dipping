@@ -10,11 +10,19 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "add":
       const newItem = action.payload;
-      return [...state, newItem];
+      const newId = state.at(-1).id + 1;
+      return [...state, { id: newId, ...newItem }];
     case "delete":
-      return;
+      const {
+        payload: { id },
+      } = action;
+      return state.filter((item) => item.id !== id);
+    case "done":
+      return state.map((item) =>
+        item.id === action.payload.id ? { ...item, done: !item.done } : item
+      );
     default:
-      return;
+      return state;
   }
 };
 

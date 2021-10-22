@@ -16,15 +16,19 @@ const TodoListBlock = styled.div`
 // context를 사용하는 consumer
 // useContext로 context를 지정해두면 이 앱 밖에서 provider를 찾음
 const TodoList = () => {
-  const data = useContext(TodoListContext)
-  console.log(data)
-
+  const { data } = useContext(TodoListContext);
   return (
     <TodoListBlock>
       {data.map((item) => {
-        return <TodoItem text={item.text} done={item.done} id={item.id} key={item.id}></TodoItem>
-      }
-      )}
+        return (
+          <TodoItem
+            text={item.text}
+            done={item.done}
+            id={item.id}
+            key={item.id}
+          ></TodoItem>
+        );
+      })}
     </TodoListBlock>
   );
 };

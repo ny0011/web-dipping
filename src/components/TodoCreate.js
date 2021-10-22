@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { MdAdd } from "react-icons/md";
+import TodoListContext from "../context/TodoContext";
 
 const CircleButton = styled.button`
   background: #38d9a9;
@@ -101,13 +102,40 @@ const Input = styled.input`
 
 const TodoCreate = () => {
   const [open, setOpen] = useState(false);
-  const onToggle = () => setOpen(!open);
+  const onToggle = () => {
+    setOpen(!open);
+  };
+  const [text, setText] = useState("");
+  const { dispatch } = useContext(TodoListContext);
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      dispatch({ type: "add", payload: { text: text, done: false } });
+      setOpen(false);
+      setText("");
+    }
+  };
+
+  const onChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setText(value);
+  };
 
   return (
     <>
       <InsertFormPositioner open={open}>
         <InsertForm>
-          <Input autoFocus placeholder="오늘은 뭐하지"></Input>
+          <Input
+            placeholder="오늘은 뭐하지"
+            onKeyPress={handleKeyPress}
+            value={text}
+            onChange={onChange}
+            tabIndex="0"
+            autoFocus
+          ></Input>
         </InsertForm>
       </InsertFormPositioner>
 
