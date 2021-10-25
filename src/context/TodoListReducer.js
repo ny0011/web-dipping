@@ -7,20 +7,27 @@ const initialState = [];
 // ex) 할 일 : { id: 1, text: "놀기", done: false },
 // action : 상태를 ~~게 바꿈
 const reducer = (state, action) => {
+  let newArray = [];
   switch (action.type) {
     case "add":
       const newItem = action.payload;
       const newId = state.at(-1) === undefined ? 0 : state.at(-1).id + 1;
-      return [...state, { id: newId, ...newItem }];
+      newArray = [...state, { id: newId, ...newItem }];
+      sessionStorage.setItem("data", JSON.stringify(newArray));
+      return newArray;
     case "delete":
       const {
         payload: { id },
       } = action;
-      return state.filter((item) => item.id !== id);
+      newArray = state.filter((item) => item.id !== id);
+      sessionStorage.setItem("data", JSON.stringify(newArray));
+      return newArray;
     case "done":
-      return state.map((item) =>
+      newArray = state.map((item) =>
         item.id === action.payload.id ? { ...item, done: !item.done } : item
       );
+      sessionStorage.setItem("data", JSON.stringify(newArray));
+      return newArray;
     default:
       return state;
   }

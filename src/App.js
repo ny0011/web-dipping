@@ -15,8 +15,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const mockdata = [{ id: 0, text: "놀기", done: true }];
-  const [data, dispatch] = useReducer(reducer, mockdata);
+  //const mockdata = [{ id: 0, text: "놀기", done: true }];
+  const defaultData = JSON.parse(sessionStorage.getItem("data")) || [];
+  const [data, dispatch] = useReducer(reducer, defaultData);
 
   return (
     <>

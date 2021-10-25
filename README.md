@@ -54,6 +54,20 @@
   - webkit 브라우저(크롬, 사파리, 오페라 등)에서는 가상 요소를 사용해 scroll style을 적용할 수 있음
 
 - Array의 index를 찾을 때 없는 경우도 생각해서 코드 구성해야 함
+
   - Array.prototype.at()은 빈 list일 때 index를 찾지 못하면 undefined를 반환
   - undefined.id를 찾을 수 없으니 에러 발생
   - 배열이 비어있을 때 임의의 값(ex: 0)을 할당하는 코드 작성
+
+- web storage API
+  - https://developer.mozilla.org/ko/docs/Web/API/Web_Storage_API
+  - https://www.daleseo.com/js-web-storage/
+  - 브라우저에 키/값 쌍을 저장하는 방법
+  - sessionStorage : 브라우저 or 탭을 닫을 때까지 데이터 저장
+    - 하루마다 새로 todo 앱이 달라질테니 할 일이 끝났을 때 컴퓨터를 끈다는 가정으로 localStorage보다 sessionStorage로 사용
+  - `오직 문자형(string) 데이터 타입만 지원`
+    - Object, Array를 storage에 저장할 때 JSON 형태로 저장하기
+    ```
+    localStorage.setItem('json', JSON.stringify({a: 1, b: 2}))
+    JSON.parse(localStorage.getItem('json'))
+    ```
