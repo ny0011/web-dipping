@@ -8,9 +8,21 @@ const TodoListBlock = styled.div`
   padding: 20px 32px;
   padding-bottom: 48px;
   overflow-y: auto;
-  background: grey;
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
+  background: #b5deff;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  &::-webkit-scrollbar {
+    width: 15px;
+    background-color: darkgrey;
+    border-bottom-right-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #7c83fd;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    border-bottom-right-radius: 10px;
+  }
 `;
 
 // context를 사용하는 consumer

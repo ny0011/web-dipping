@@ -15,10 +15,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const mockdata = [
-    { id: 1, text: "놀기", done: false },
-    { id: 2, text: "먹기", done: false },
-  ];
+  const mockdata = [{ id: 0, text: "놀기", done: true }];
   const [data, dispatch] = useReducer(reducer, mockdata);
 
   return (

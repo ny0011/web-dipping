@@ -29,11 +29,31 @@
     - depth가 깊은 컴포턴트가 있고 중간 컴포넌트들은 이 데이터를 사용하지 않을 때 유용
 
 - useReducer
+
   - https://ko.reactjs.org/docs/hooks-reference.html#usereducer
   - (state, action) => newState
+
   ```
     const [state, dispatch] = useReducer(reducer, initialArg, init);
   ```
+
   - state, action을 받아서 현재 state를 반환
   - useReducer에 변수를 등록하고, 사용할 때 dispatch() 안에 동작하기 원하는 type을 부름
   - 다음 state가 이전 state에 의존적일 때 useState보다 useReducer가 편함
+
+- transitionend : CSS transition이 완료되면 발생하는 이벤트
+
+  - https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event
+  - 움직임이 끝나고 focus()를 실행하고 싶어서 사용한 이벤트
+
+- custom scroll :
+
+  - https://ishadeed.com/article/custom-scrollbars-css/
+  - https://codingbroker.tistory.com/66
+  - scroll bar 스타일 웹 표준은 없음
+  - webkit 브라우저(크롬, 사파리, 오페라 등)에서는 가상 요소를 사용해 scroll style을 적용할 수 있음
+
+- Array의 index를 찾을 때 없는 경우도 생각해서 코드 구성해야 함
+  - Array.prototype.at()은 빈 list일 때 index를 찾지 못하면 undefined를 반환
+  - undefined.id를 찾을 수 없으니 에러 발생
+  - 배열이 비어있을 때 임의의 값(ex: 0)을 할당하는 코드 작성

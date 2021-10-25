@@ -7,7 +7,7 @@ const Remove = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #dee2e6;
+  color: #8ca1a5;
   font-size: 24px;
   cursor: pointer;
   &:hover {
@@ -33,7 +33,7 @@ const CheckCircle = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 16px;
-  border: 1px solid #ced4da;
+  border: 1px solid #787a91;
   font-size: 24px;
   display: flex;
   align-items: center;
@@ -44,8 +44,8 @@ const CheckCircle = styled.div`
   ${(props) =>
     props.done &&
     css`
-      border: 1px solid #38d9a9;
-      color: #38d9a9;
+      border: 1px solid #297f87;
+      color: #297f87;
     `}
 `;
 
@@ -56,7 +56,8 @@ const Text = styled.div`
   ${(props) =>
     props.done &&
     css`
-      color: #ced4da;
+      color: #787a91;
+      text-decoration: line-through;
     `}
 `;
 const TodoItem = ({ id, done, text }) => {

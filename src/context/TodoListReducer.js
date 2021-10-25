@@ -10,7 +10,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "add":
       const newItem = action.payload;
-      const newId = state.at(-1).id + 1;
+      const newId = state.at(-1) === undefined ? 0 : state.at(-1).id + 1;
       return [...state, { id: newId, ...newItem }];
     case "delete":
       const {

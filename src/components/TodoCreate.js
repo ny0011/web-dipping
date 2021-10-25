@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { MdAdd } from "react-icons/md";
 import TodoListContext from "../context/TodoContext";
@@ -84,8 +84,8 @@ const InsertForm = styled.form`
   padding-right: 32px;
   padding-bottom: 72px;
 
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 10px;
 
   border-top: 1px solid #e9ecef;
 `;
@@ -107,6 +107,7 @@ const TodoCreate = () => {
   };
   const [text, setText] = useState("");
   const { dispatch } = useContext(TodoListContext);
+  const inputRef = useRef(null);
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -124,9 +125,13 @@ const TodoCreate = () => {
     setText(value);
   };
 
+  const onTransitionEnd = () => {
+    inputRef.current && inputRef.current.focus();
+  };
+
   return (
     <>
-      <InsertFormPositioner open={open}>
+      <InsertFormPositioner open={open} onTransitionEnd={onTransitionEnd}>
         <InsertForm>
           <Input
             placeholder="오늘은 뭐하지"
@@ -134,7 +139,7 @@ const TodoCreate = () => {
             value={text}
             onChange={onChange}
             tabIndex="0"
-            autoFocus
+            ref={inputRef}
           ></Input>
         </InsertForm>
       </InsertFormPositioner>
