@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import TodoListContext from "../context/TodoContext";
 
 const TodoHeadBlock = styled.div`
   padding-top: 48px;
@@ -28,26 +30,24 @@ const TodoHeadBlock = styled.div`
   }
 `;
 
-const getDate = (props) => {
-  const today = new Date();
-
-  if (props === "date") {
-    const year = today.getFullYear();
-    const month = today.getMonth() + 1;
-    const date = today.getDate();
-    return `${year}년 ${month}월 ${date}일`;
-  }
-  const dayList = ["일", "월", "화", "수", "목", "금", "토"];
-  const day = dayList[today.getDay()];
-  return `${day}요일`;
-};
 
 function TodoHead() {
+  const today = new Date();
+  const dateString = today.toLocaleDateString("ko-KR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  })
+  const dayName = today.toLocaleDateString("ko-KR", { weekday: "long" })
+
+  const { data } = useContext(TodoListContext)
+  const undoneTodos = data.filter((item) => item.done === false)
+
   return (
     <TodoHeadBlock>
-      <h1>{getDate("date")}</h1>
-      <div className="day">{getDate("day")}</div>
-      <div className="task-left">이것만 하자</div>
+      <h1>{dateString}</h1>
+      <div className="day">{dayName}</div>
+      <div className="task-left">{undoneTodos.length}개 남음</div>
     </TodoHeadBlock>
   );
 }

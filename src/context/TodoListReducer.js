@@ -10,16 +10,11 @@ const reducer = (state, action) => {
   let newArray = [];
   switch (action.type) {
     case "add":
-      const newItem = action.payload;
-      const newId = state.at(-1) === undefined ? 0 : state.at(-1).id + 1;
-      newArray = [...state, { id: newId, ...newItem }];
+      newArray = state.concat(action.payload);
       sessionStorage.setItem("data", JSON.stringify(newArray));
       return newArray;
     case "delete":
-      const {
-        payload: { id },
-      } = action;
-      newArray = state.filter((item) => item.id !== id);
+      newArray = state.filter((item) => item.id !== action.payload.id);
       sessionStorage.setItem("data", JSON.stringify(newArray));
       return newArray;
     case "done":

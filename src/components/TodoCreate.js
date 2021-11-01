@@ -106,13 +106,17 @@ const TodoCreate = () => {
     setOpen(!open);
   };
   const [text, setText] = useState("");
-  const { dispatch } = useContext(TodoListContext);
+  const { dispatch, nextId } = useContext(TodoListContext);
+
+
   const inputRef = useRef(null);
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      dispatch({ type: "add", payload: { text: text, done: false } });
+      dispatch({ type: "add", payload: { text: text, done: false, id: nextId.current } });
+
+      nextId.current++;
       setOpen(false);
       setText("");
     }
