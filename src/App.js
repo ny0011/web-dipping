@@ -18,7 +18,7 @@ function App() {
   const defaultData =
     JSON.parse(localStorage.getItem("data")) || initialState;
   const [data, dispatch] = useReducer(reducer, defaultData);
-  let nextId = useRef(data.length + 1);
+  let nextId = useRef(data.length === 0 ? 1 : data.at(-1).id + 1);
 
   return (
     <>
