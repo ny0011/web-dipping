@@ -72,7 +72,6 @@ function TodoHead() {
     nextId.current = 1
   }
 
-
   return (
     <TodoHeadBlock>
       <h1>{dateString}</h1>
