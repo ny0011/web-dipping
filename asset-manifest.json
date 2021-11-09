@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/web-dipping/static/css/main.d87cbb72.chunk.css",
-    "main.js": "/web-dipping/static/js/main.4c624ea5.chunk.js",
-    "main.js.map": "/web-dipping/static/js/main.4c624ea5.chunk.js.map",
+    "main.js": "/web-dipping/static/js/main.49e80621.chunk.js",
+    "main.js.map": "/web-dipping/static/js/main.49e80621.chunk.js.map",
     "runtime-main.js": "/web-dipping/static/js/runtime-main.545bc52d.js",
     "runtime-main.js.map": "/web-dipping/static/js/runtime-main.545bc52d.js.map",
     "static/js/2.78e0ca19.chunk.js": "/web-dipping/static/js/2.78e0ca19.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.545bc52d.js",
     "static/js/2.78e0ca19.chunk.js",
     "static/css/main.d87cbb72.chunk.css",
-    "static/js/main.4c624ea5.chunk.js"
+    "static/js/main.49e80621.chunk.js"
   ]
 }
