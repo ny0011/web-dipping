@@ -64,10 +64,10 @@ const TodoItem = ({ id, done, text }) => {
   const { dispatch } = useContext(TodoListContext);
 
   const onRemoveClick = (e) => {
-    dispatch({ type: "delete", payload: { id } });
+    dispatch({ type: "DELETE", payload: { id } });
   };
   const onCircleClick = (e) => {
-    dispatch({ type: "done", payload: { id } });
+    dispatch({ type: "DONE", payload: { id } });
   };
   return (
     <TodoItemBlock>

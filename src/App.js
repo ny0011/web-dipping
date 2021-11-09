@@ -15,11 +15,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  //const mockdata = [{ id: 0, text: "놀기", done: true }];
   const defaultData =
-    JSON.parse(sessionStorage.getItem("data")) || initialState;
+    JSON.parse(localStorage.getItem("data")) || initialState;
   const [data, dispatch] = useReducer(reducer, defaultData);
-  let nextId = useRef(1);
+  let nextId = useRef(data.length + 1);
 
   return (
     <>

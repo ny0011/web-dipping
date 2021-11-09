@@ -114,7 +114,7 @@ const TodoCreate = () => {
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      dispatch({ type: "add", payload: { text: text, done: false, id: nextId.current } });
+      dispatch({ type: "ADD", payload: { text: text, done: false, id: nextId.current } });
 
       nextId.current++;
       setOpen(false);
