@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/web-dipping/static/css/main.e1ce61ea.chunk.css",
-    "main.js": "/web-dipping/static/js/main.7ab0a8fe.chunk.js",
-    "main.js.map": "/web-dipping/static/js/main.7ab0a8fe.chunk.js.map",
+    "main.css": "/web-dipping/static/css/main.d87cbb72.chunk.css",
+    "main.js": "/web-dipping/static/js/main.4c624ea5.chunk.js",
+    "main.js.map": "/web-dipping/static/js/main.4c624ea5.chunk.js.map",
     "runtime-main.js": "/web-dipping/static/js/runtime-main.545bc52d.js",
     "runtime-main.js.map": "/web-dipping/static/js/runtime-main.545bc52d.js.map",
-    "static/js/2.d428601e.chunk.js": "/web-dipping/static/js/2.d428601e.chunk.js",
-    "static/js/2.d428601e.chunk.js.map": "/web-dipping/static/js/2.d428601e.chunk.js.map",
+    "static/js/2.78e0ca19.chunk.js": "/web-dipping/static/js/2.78e0ca19.chunk.js",
+    "static/js/2.78e0ca19.chunk.js.map": "/web-dipping/static/js/2.78e0ca19.chunk.js.map",
     "index.html": "/web-dipping/index.html",
-    "static/css/main.e1ce61ea.chunk.css.map": "/web-dipping/static/css/main.e1ce61ea.chunk.css.map",
-    "static/js/2.d428601e.chunk.js.LICENSE.txt": "/web-dipping/static/js/2.d428601e.chunk.js.LICENSE.txt"
+    "static/css/main.d87cbb72.chunk.css.map": "/web-dipping/static/css/main.d87cbb72.chunk.css.map",
+    "static/js/2.78e0ca19.chunk.js.LICENSE.txt": "/web-dipping/static/js/2.78e0ca19.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.545bc52d.js",
-    "static/js/2.d428601e.chunk.js",
-    "static/css/main.e1ce61ea.chunk.css",
-    "static/js/main.7ab0a8fe.chunk.js"
+    "static/js/2.78e0ca19.chunk.js",
+    "static/css/main.d87cbb72.chunk.css",
+    "static/js/main.4c624ea5.chunk.js"
   ]
 }
