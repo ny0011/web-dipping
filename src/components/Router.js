@@ -1,14 +1,23 @@
-import React from "react";
+import LoginContext from "context/LoginContext";
+import React, { useContext } from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "routes/Home";
+import Login from "routes/Login";
 import Navigation from "./Navigation";
 
-const AppRouter = ({ userObj }) => {
+const AppRouter = () => {
+  const { userObj } = useContext(LoginContext);
+  const isLoggedIn = Boolean(userObj);
+
   return (
     <Router>
-      <Navigation userObj={userObj} />
+      {isLoggedIn && <Navigation />}
       <Routes>
-        <Route exact path="/" element={<Home userObj={userObj} />}></Route>
+        {isLoggedIn ? (
+          <Route exact path="/" element={<Home />}></Route>
+        ) : (
+          <Route exact path="/" element={<Login />}></Route>
+        )}
       </Routes>
     </Router>
   );
