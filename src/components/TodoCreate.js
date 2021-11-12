@@ -98,23 +98,26 @@ const Input = styled.input`
   outline: none;
   font-size: 18px;
   box-sizing: border-box;
+  color: #343a40;
 `;
 
 const TodoCreate = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const onToggle = () => {
     setOpen(!open);
   };
   const [text, setText] = useState("");
   const { dispatch, nextId } = useContext(TodoListContext);
 
-
   const inputRef = useRef(null);
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      dispatch({ type: "ADD", payload: { text: text, done: false, id: nextId.current } });
+      dispatch({
+        type: "ADD",
+        payload: { text: text, done: false, id: nextId.current },
+      });
 
       nextId.current++;
       setOpen(false);
@@ -138,6 +141,7 @@ const TodoCreate = () => {
       <InsertFormPositioner open={open} onTransitionEnd={onTransitionEnd}>
         <InsertForm>
           <Input
+            autoFocus
             placeholder="오늘은 뭐하지"
             onKeyPress={handleKeyPress}
             value={text}
@@ -148,7 +152,7 @@ const TodoCreate = () => {
         </InsertForm>
       </InsertFormPositioner>
 
-      <CircleButton onClick={onToggle} open={open}>
+      <CircleButton onClick={onToggle} tabIndex="0" open={open}>
         <MdAdd />
       </CircleButton>
     </>

@@ -79,16 +79,14 @@ const AuthForm = () => {
   };
   const onSubmit = async (event) => {
     event.preventDefault();
-    let data;
     try {
       if (newAccount) {
         // create account
-        data = await createUserWithEmailAndPassword(auth, email, password);
+        await createUserWithEmailAndPassword(auth, email, password);
       } else {
         // log in
-        data = await signInWithEmailAndPassword(auth, email, password);
+        await signInWithEmailAndPassword(auth, email, password);
       }
-      console.log(data);
     } catch (error) {
       setError(error.message);
     }
