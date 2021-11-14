@@ -3,13 +3,21 @@ import TodoList from "components/TodoList";
 import { TodoTemplate } from "components/TodoTemplate";
 import TodoListContext from "context/TodoContext";
 import TodoCreate from "components/TodoCreate";
-import { useReducer, useRef } from "react";
-import reducer, { getTodos, initialState } from "context/TodoListReducer";
+import { useContext, useEffect, useReducer, useRef } from "react";
+import reducer, { initialState } from "context/TodoListReducer";
+
+import LoginContext from "context/LoginContext";
+import { getTodos } from "server/firestore";
 
 const Home = () => {
+
   const [data, dispatch] = useReducer(reducer, initialState);
-  let nextId = useRef(data.length === 0 ? 1 : data.at(-1).id + 1);
-  console.log(getTodos());
+  const { userObj } = useContext(LoginContext);
+  let nextId = useRef(1);
+
+  useEffect(() => {
+    getTodos(dispatch, userObj, nextId)
+  }, [userObj])
 
   return (
     <>

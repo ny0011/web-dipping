@@ -111,12 +111,12 @@ const TodoCreate = () => {
 
   const inputRef = useRef(null);
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = async (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
       dispatch({
         type: "ADD",
-        payload: { text: text, done: false, id: nextId.current },
+        payload: { text: text, done: false, id: nextId.current, },
       });
 
       nextId.current++;
