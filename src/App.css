@@ -1,4 +1,7 @@
-@import "https://fonts.googleapis.com/css2?family=Song+Myung&display=swap";
+@font-face {
+  font-family: "Cafe24SsurroundAir";
+  src: url("Cafe24SsurroundAir.woff2") format("woff");
+}
 @import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
 
 input {
@@ -9,15 +12,19 @@ input {
 
 * {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Song Myung", "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Cafe24SsurroundAir",
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-weight: bold;
 }
 
 body {
   background-color: #142f43;
-  font-family: -apple-system, BlinkMacSystemFont, "Song Myung", "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Cafe24SsurroundAir",
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 14px;
+  font-weight: bold;
   color: white;
 }
 
