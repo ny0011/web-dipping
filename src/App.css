@@ -41,3 +41,29 @@ a {
 form {
   width: 100%;
 }
+
+.formBtn {
+  cursor: pointer;
+  width: 100%;
+  padding: 7px 20px;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  background-color: #04aaff;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  cursor: pointer;
+  background-color: tomato;
+}
+
+.logOut {
+  margin-top: 50px;
+  max-width: 256px;
+}
+
+.title {
+  margin-top: 50px;
+  font-size: 2rem;
+}
