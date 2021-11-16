@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
+import { MdViewList, MdHome, MdPerson } from "react-icons/md";
+import { IconContext } from "react-icons";
 import styled from "styled-components";
 
 const Nav = styled.nav`
@@ -18,20 +18,22 @@ const Li = styled.li`
   justify-content: space-around;
 `;
 
-const Navigation = ({ userObj }) => (
+const Navigation = () => (
   <Nav>
     <ul>
-      <Li>
-        <Link to="/list">
-          <FontAwesomeIcon icon={faClipboardList} color={"#04AAFF"} size="2x" />
-        </Link>
-        <Link to="/">
-          <FontAwesomeIcon icon={faClipboardList} color={"#04AAFF"} size="2x" />
-        </Link>
-        <Link to="/user">
-          <FontAwesomeIcon icon={faClipboardList} color={"#04AAFF"} size="2x" />
-        </Link>
-      </Li>
+      <IconContext.Provider value={{ color: "#FF9B6A", size: "2em" }}>
+        <Li>
+          <Link to="/list">
+            <MdViewList />
+          </Link>
+          <Link to="/">
+            <MdHome />
+          </Link>
+          <Link to="/user">
+            <MdPerson />
+          </Link>
+        </Li>
+      </IconContext.Provider>
     </ul>
   </Nav>
 );

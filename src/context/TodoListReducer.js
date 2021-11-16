@@ -29,12 +29,7 @@ const reducer = (state, action) => {
       saveItems(nextState);
       return nextState;
     }
-    case "CLEAR": {
-      const nextState = initialState;
-      saveItems(nextState);
-      return nextState;
-    }
-    case "GET": {
+    case "SAVE": {
       const nextState = [...action.payload];
       saveItems(nextState);
       return nextState;
