@@ -20,7 +20,7 @@ const LoginContainer = styled.div`
 
 const Title = styled.div`
   display: flex;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 20px;
 `;
 

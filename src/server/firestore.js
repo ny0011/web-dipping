@@ -1,12 +1,8 @@
 
 import {
   collection,
-  deleteDoc,
   doc,
-  getDoc,
-  getDocs,
   onSnapshot,
-  orderBy,
   query,
   writeBatch
 } from "@firebase/firestore";
@@ -33,7 +29,7 @@ export const getTodos = (dispatch, userObj, nextId) => {
       } else {
         const localData = JSON.parse(localStorage.getItem("data"))
         dispatch({ type: "SAVE", payload: localData });
-        nextId.current = localData.length == 0 ? 1 : localData.at(-1).id + 1
+        nextId.current = localData.length === 0 ? 1 : localData.at(-1).id + 1
       }
 
     });
@@ -49,8 +45,10 @@ export const getTodos = (dispatch, userObj, nextId) => {
 //export const deleteTodo = async (creatorId, id) => await deleteDoc(doc(db, `${creatorId}/${id}`));
 export const saveTodo = async (data, userObj) => {
   const batch = writeBatch(db);
-  for (let i = 0; i < data.length; i++) {
-    const idString = String(data[i].id)
+  for (let i = 1; i < data.length; i++) {
+    const idString = String(i + 1)
+    console.log(idString)
+
     const todoRef = doc(db, createTodosDateLink(userObj.uid), idString)
     batch.set(todoRef, data[i]);
   }

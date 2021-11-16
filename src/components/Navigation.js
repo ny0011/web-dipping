@@ -7,6 +7,8 @@ import styled from "styled-components";
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
+  width: 512px;
+  margin: 0 auto;
   margin-top: 32px;
   margin-bottom: 15px;
   align-self: center;

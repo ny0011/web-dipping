@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import LoginContext from "context/LoginContext";
-import { useContext } from "react";
 import { auth } from "server/fbase";
 import styled from "styled-components";
 
@@ -12,7 +10,6 @@ const UserTemplate = styled.div`
 
 const User = () => {
   const history = useNavigate();
-  //const { userObj, refreshUser } = useContext(LoginContext);
   const onLogOutClick = () => {
     auth.signOut();
     history("/");
