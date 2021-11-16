@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/web-dipping/static/css/main.d87cbb72.chunk.css",
-    "main.js": "/web-dipping/static/js/main.49e80621.chunk.js",
-    "main.js.map": "/web-dipping/static/js/main.49e80621.chunk.js.map",
+    "main.css": "/web-dipping/static/css/main.73d41184.chunk.css",
+    "main.js": "/web-dipping/static/js/main.a3facd41.chunk.js",
+    "main.js.map": "/web-dipping/static/js/main.a3facd41.chunk.js.map",
     "runtime-main.js": "/web-dipping/static/js/runtime-main.545bc52d.js",
     "runtime-main.js.map": "/web-dipping/static/js/runtime-main.545bc52d.js.map",
-    "static/js/2.78e0ca19.chunk.js": "/web-dipping/static/js/2.78e0ca19.chunk.js",
-    "static/js/2.78e0ca19.chunk.js.map": "/web-dipping/static/js/2.78e0ca19.chunk.js.map",
+    "static/js/2.ebd7c3e8.chunk.js": "/web-dipping/static/js/2.ebd7c3e8.chunk.js",
+    "static/js/2.ebd7c3e8.chunk.js.map": "/web-dipping/static/js/2.ebd7c3e8.chunk.js.map",
     "index.html": "/web-dipping/index.html",
-    "static/css/main.d87cbb72.chunk.css.map": "/web-dipping/static/css/main.d87cbb72.chunk.css.map",
-    "static/js/2.78e0ca19.chunk.js.LICENSE.txt": "/web-dipping/static/js/2.78e0ca19.chunk.js.LICENSE.txt"
+    "static/css/main.73d41184.chunk.css.map": "/web-dipping/static/css/main.73d41184.chunk.css.map",
+    "static/js/2.ebd7c3e8.chunk.js.LICENSE.txt": "/web-dipping/static/js/2.ebd7c3e8.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/web-dipping/static/media/Cafe24SsurroundAir.d82d9a3c.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.545bc52d.js",
-    "static/js/2.78e0ca19.chunk.js",
-    "static/css/main.d87cbb72.chunk.css",
-    "static/js/main.49e80621.chunk.js"
+    "static/js/2.ebd7c3e8.chunk.js",
+    "static/css/main.73d41184.chunk.css",
+    "static/js/main.a3facd41.chunk.js"
   ]
 }
