@@ -40,39 +40,36 @@ const TodoHeadBlock = styled.div`
     align-items: center;
   }
 
-  .upload{
+  .upload {
     display: flex;
     align-items: center;
   }
-  .upload-text{
+  .upload-text {
     color: #7c83fd;
     font-size: 18px;
-    margin-top:3px;
+    margin-top: 3px;
   }
-  .upload-button{
-    cursor: pointer
+  .upload-button {
+    cursor: pointer;
   }
 `;
-
-
 
 function TodoHead() {
   const today = new Date();
   const dateString = today.toLocaleDateString("ko-KR", {
     year: "numeric",
     month: "long",
-    day: "numeric"
-  })
-  const dayName = today.toLocaleDateString("ko-KR", { weekday: "long" })
+    day: "numeric",
+  });
+  const dayName = today.toLocaleDateString("ko-KR", { weekday: "long" });
 
-  const { data } = useContext(TodoListContext)
-  const { userObj } = useContext(LoginContext)
-  const undoneTodos = data.filter((item) => item.done === false)
+  const { data, dispatch } = useContext(TodoListContext);
+  const { userObj } = useContext(LoginContext);
+  const undoneTodos = data.filter((item) => item.done === false);
 
   const onSaveFirestore = () => {
-    console.log(data, userObj)
-    saveTodo(data, userObj)
-  }
+    saveTodo(dispatch, userObj, data);
+  };
 
   return (
     <TodoHeadBlock>
@@ -83,9 +80,12 @@ function TodoHead() {
         <div className="upload">
           <div className="upload-text">서버에 저장</div>
           <div className="upload-button">
-            <IconContext.Provider value={{
-              color: "#142F43", size: "2rem"
-            }} >
+            <IconContext.Provider
+              value={{
+                color: "#142F43",
+                size: "2rem",
+              }}
+            >
               <MdSave onClick={onSaveFirestore} />
             </IconContext.Provider>
           </div>
