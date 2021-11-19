@@ -65,7 +65,7 @@ function TodoHead() {
 
   const { data, dispatch } = useContext(TodoListContext);
   const { userObj } = useContext(LoginContext);
-  const undoneTodos = data.filter((item) => item.done === false);
+  const undoneTodos = data.todos.filter((item) => item.done === false);
 
   const onSaveFirestore = () => {
     saveTodo(dispatch, userObj, data);

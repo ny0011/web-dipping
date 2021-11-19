@@ -1,36 +1,46 @@
 // Reducer : 데이터를 안전하게 조작하기 위한 구조
 
-// initial state : 초기 상태
-export const initialState = [];
-
 const saveItems = (newItems) => {
   localStorage.setItem("data", JSON.stringify(newItems));
-}
+};
 
 // state : 상태, 데이터
-// ex) 할 일 : { id: 1, text: "놀기", done: false },
 // action : 상태를 ~~게 바꿈
+/*
+state =
+{
+  uid: user의 id,
+  date: yyyymmdd,
+  todos : [{ id: 1, text: "놀기", done: false },{ id: 2, text: "먹기", done: true }]
+}
+*/
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD": {
-      const nextState = state.concat(action.payload);
+      const newTodos = state.todos.concat(action.payload);
+      const nextState = { ...state, todos: newTodos };
       saveItems(nextState);
       return nextState;
     }
     case "DELETE": {
-      const nextState = state.filter((item) => item.id !== action.payload.id);
+      const newTodos = state.todos.filter(
+        (item) => item.id !== action.payload.id
+      );
+      const nextState = { ...state, todos: newTodos };
       saveItems(nextState);
       return nextState;
     }
     case "DONE": {
-      const nextState = state.map((item) =>
+      const newTodos = state.todos.map((item) =>
         item.id === action.payload.id ? { ...item, done: !item.done } : item
       );
+      const nextState = { ...state, todos: newTodos };
       saveItems(nextState);
       return nextState;
     }
     case "SAVE": {
-      const nextState = [...action.payload];
+      const nextState = action.payload;
       saveItems(nextState);
       return nextState;
     }

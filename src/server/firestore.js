@@ -7,37 +7,59 @@ import {
 } from "@firebase/firestore";
 import { db } from "server/fbase";
 
-const createTodosDateLink = (uid) => {
+const createTodayString = () => {
   const today = new Date();
-  const dateString = today
+  return today
     .toLocaleDateString("ko-KR")
     .replace(/\./g, "")
     .split(" ")
     .join("");
-  return `todos/${uid}/${dateString}`;
 };
 
-// fbase에서 저장된 todos 가져오기
-export const getTodos = (dispatch, userObj, nextId) => {
-  const q = query(collection(db, createTodosDateLink(userObj.uid)));
-  try {
-    onSnapshot(q, (snapshot) => {
-      const todos = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: parseInt(doc.id),
-      }));
+const createTodosDateLink = (uid) => {
+  return `todos/${uid}/${createTodayString()}`;
+};
 
-      if (todos.length !== 0) {
-        dispatch({ type: "SAVE", payload: todos });
-        nextId.current = todos.at(-1).id + 1;
-      } else {
-        const localData = JSON.parse(localStorage.getItem("data")) || [];
-        dispatch({ type: "SAVE", payload: localData });
-        nextId.current = localData.length === 0 ? 1 : localData.at(-1).id + 1;
-      }
-    });
-  } catch (error) {
-    console.log(error);
+export const initialState = (uid) => {
+  return { uid, date: createTodayString(), todos: [] };
+};
+
+/* 저장된 todos 가져오기
+localStorage의 data확인
+if data가 있음 && 오늘 날짜 && uid 같음
+-> localStorage 사용
+else 
+-> firestore 데이터로 localStorage 덮어쓰기
+
+*/
+export const getTodos = (dispatch, userObj, nextId) => {
+  const localData = JSON.parse(localStorage.getItem("data")) || {};
+  if (
+    localData.length !== 0 &&
+    localData.uid === userObj.uid &&
+    localData.date === createTodayString()
+  ) {
+    dispatch({ type: "SAVE", payload: localData });
+    nextId.current =
+      localData.todos.length === 0 ? 1 : localData.todos.at(-1).id + 1;
+  } else {
+    try {
+      const q = query(collection(db, createTodosDateLink(userObj.uid)));
+      onSnapshot(q, (snapshot) => {
+        const todos =
+          snapshot.docs.map((doc) => ({
+            ...doc.data(),
+            id: parseInt(doc.id),
+          })) || [];
+        dispatch({
+          type: "SAVE",
+          payload: { uid: userObj.uid, date: createTodayString(), todos },
+        });
+        nextId.current = todos.length === 0 ? 1 : todos.at(-1).id + 1;
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 

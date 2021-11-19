@@ -31,7 +31,7 @@ const TodoList = () => {
   const { data } = useContext(TodoListContext);
   return (
     <TodoListBlock>
-      {data.map((item) => {
+      {data.todos.map((item) => {
         return (
           <TodoItem
             text={item.text}
