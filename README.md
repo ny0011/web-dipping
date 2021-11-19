@@ -97,3 +97,5 @@
   - Array.prototype.at()은 빈 list일 때 index를 찾지 못하면 undefined를 반환
   - undefined.id를 찾을 수 없으니 에러 발생
   - 배열이 비어있을 때 임의의 값(ex: 0)을 할당하는 코드 작성
+
+## 기존 Todo + firebase 붙이기

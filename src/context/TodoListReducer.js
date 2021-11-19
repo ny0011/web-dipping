@@ -40,7 +40,8 @@ const reducer = (state, action) => {
       return nextState;
     }
     case "SAVE": {
-      const nextState = action.payload;
+      const nextState = { ...action.payload };
+      console.log(nextState);
       saveItems(nextState);
       return nextState;
     }

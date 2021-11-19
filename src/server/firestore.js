@@ -34,6 +34,7 @@ else
 */
 export const getTodos = (dispatch, userObj, nextId) => {
   const localData = JSON.parse(localStorage.getItem("data")) || {};
+  console.log(localData);
   if (
     localData.length !== 0 &&
     localData.uid === userObj.uid &&
@@ -66,17 +67,22 @@ export const getTodos = (dispatch, userObj, nextId) => {
 //export const deleteTodo = async (creatorId, id) => await deleteDoc(doc(db, `${creatorId}/${id}`));
 export const saveTodo = async (dispatch, userObj, data) => {
   const batch = writeBatch(db);
-  let newData = [];
-  for (let i = 0; i < data.length; i++) {
+  let newTodos = [];
+  for (let i = 0; i < data.todos.length; i++) {
     const newId = i + 1;
     const idString = String(newId);
-    const newTodo = { ...data[i], id: newId };
+    const newTodo = { ...data.todos[i], id: newId };
 
     const todoRef = doc(db, createTodosDateLink(userObj.uid), idString);
+    newTodos.push(newTodo);
+    console.log(newTodos, newTodo);
     batch.set(todoRef, newTodo);
-    newData.push(newTodo);
   }
-  dispatch({ type: "SAVE", payload: newData });
+  console.log(newTodos);
+  dispatch({
+    type: "SAVE",
+    payload: { uid: userObj.uid, date: createTodayString(), todos: newTodos },
+  });
 
   await batch.commit();
   alert("서버에 저장 완료!");

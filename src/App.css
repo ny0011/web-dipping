@@ -16,6 +16,7 @@ input {
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
   font-weight: bold;
+  margin: 0px;
 }
 
 body {
@@ -26,6 +27,8 @@ body {
   font-size: 14px;
   font-weight: bold;
   color: white;
+
+  padding: 0px 0.75rem;
 }
 
 button {
